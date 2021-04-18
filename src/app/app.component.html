@@ -1,0 +1,13 @@
+<mat-toolbar *ngIf="this._authService.isLoggedIn()" color="primary" class="navbar">
+    <div>Mohit Ratanpara - 19SOECE13007</div>
+    <div>
+        <a class="text-white" routerLink="/videos">Video's</a>
+        <a *ngIf="this._authService.isLoggedIn()" (click)="logout()" class="btn btn-danger ml-2"><i
+                class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+    </div>
+</mat-toolbar>
+<div *ngIf="this._authService.isLoading | async">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<router-outlet></router-outlet>
