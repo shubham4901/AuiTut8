@@ -17,12 +17,8 @@ export class AuthGuard implements CanActivate {
   
   canActivate():boolean{
     if (this._authService.isLoggedIn()!==true) {
-      Swal.fire(
-        'Warnning',
-        'Access not allowed without login :)',
-        'error'
-      )
-      // window.alert("Access not allowed without login");
+    
+      window.alert("Access not allowed without login");
       this._router.navigate(['/login']);
     }
     return true;
